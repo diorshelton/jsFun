@@ -1,12 +1,12 @@
-const chai = require("chai")
+const chai = require('chai');
 const expect = chai.expect;
-const context = require("../context/index");
+const context = require('../context/index');
 
 global.document = {
   getElementById: () => ({
     addEventListener: () => {}
   })
-}
+};
 
 global.$ = (() => ({
   on: () => {}

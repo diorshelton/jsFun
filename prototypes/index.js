@@ -27,21 +27,33 @@ const kittyPrompts = {
 
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.filter(kitten => kitten.color === 'orange')
+      .map(orangeKitten => orangeKitten.name);
     return result;
 
     // Annotation:
     // Write your annotation here as a comment
+
+    /* Asks for: ONLY the names of kittens that are orange.
+      1) Filter through array of kittens
+      2) Map names of kittens
+    */
   },
 
   sortByAge() {
     // Sort the kitties by their age
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort((a,b)=>{ return b.age - a.age;});
     return result;
 
     // Annotation:
     // Write your annotation here as a comment
+    /* Asks for kittens to be sorted by age.
+     1) Reach for sort function.
+     2) Pass in compare function.
+     3) Use dot notation to access properties
+      
+    */
   },
 
   growUp() {
@@ -58,8 +70,12 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.map( cat => {cat.age+=2; return cat;}).sort((a, b) => {return b.age -a.age;}); 
     return result;
+    /*Asks for an array of kitties to be returned with ages increased by 2
+      1) Reach for map to return a new array.
+> let olderCats = 
+    */
   }
 };
 
@@ -90,11 +106,33 @@ const clubPrompts = {
     //   ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = clubs.reduce((acc, club)=> {
+      club.members.map(member => {
+        acc[member] = acc[member]? [...acc[member], club.club]: [club.club];
+      });
+      return acc;
+    }, {});
+
     return result;
 
-    // Annotation:
+
+    // Annotation:  
     // Write your annotation here as a comment
+    /*
+      Asks for a single object that contains names as keys and values matching the clubs each person is a part of.
+      {member: [club, club],
+       member: [club, club],
+       member: [club, club]
+      };
+        1) Reach for reduce function to shape data into single object. 
+
+
+        2) Members- How to make an object with club members as keys without including duplicates...
+        if(club.members.includes(member)) {
+          array.push(club)
+        } 
+    */
+   
   }
 };
 

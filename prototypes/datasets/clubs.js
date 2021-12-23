@@ -8,6 +8,4 @@ const clubs = [
   { club: 'Art', members: ['Jhun', 'Louisa'] }
 ];
 
-module.exports = {
-  clubs
-};
+module.exports = {clubs};
