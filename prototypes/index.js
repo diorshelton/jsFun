@@ -164,11 +164,33 @@ const modPrompts = {
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = mods.reduce((acc, curr) => {
+      let studentsPerInstructor = curr.students/curr.instructors;
+      let entry = {mod:curr.mod, studentsPerInstructor:studentsPerInstructor};
+      acc.push(entry);
+      return acc;
+    }, []);
     return result;
-
     // Annotation:
     // Write your annotation here as a comment
+
+    /*
+    
+          mods.reduce((acc, curr) => {
+          acc.push({mod:[curr.mod], studentsPerInstructor:[]});
+          return acc;
+        }, []);
+        
+      Asks for a single array to be returned with keys mod and studentsPerInstructor
+      Reach for map to iterate through mods array. 
+      Mod key remains the same
+      create new key studentsPerInstructor: = mod.students/mod.instructors
+
+      [
+        { mod:1 , studentsPerInstructor: 5}
+        {mod:2 , studentsPerInstructor: 5}
+      ]
+    */
   }
 };
 
