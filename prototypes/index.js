@@ -166,7 +166,7 @@ const modPrompts = {
 
     const result = mods.reduce((acc, curr) => {
       let studentsPerInstructor = curr.students/curr.instructors;
-      let entry = {mod:curr.mod, studentsPerInstructor:studentsPerInstructor};
+      let entry = {mod:curr.mod,studentsPerInstructor:studentsPerInstructor};
       acc.push(entry);
       return acc;
     }, []);
@@ -176,12 +176,7 @@ const modPrompts = {
 
     /*
     
-          mods.reduce((acc, curr) => {
-          acc.push({mod:[curr.mod], studentsPerInstructor:[]});
-          return acc;
-        }, []);
-        
-      Asks for a single array to be returned with keys mod and studentsPerInstructor
+            Asks for a single array to be returned with keys mod and studentsPerInstructor
       Reach for map to iterate through mods array. 
       Mod key remains the same
       create new key studentsPerInstructor: = mod.students/mod.instructors
@@ -221,11 +216,20 @@ const cakePrompts = {
     //    ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.reduce((prev, cake)  => {
+      let cakeStock = {flavor:cake.cakeFlavor, inStock:cake.inStock};
+      prev.push(cakeStock);
+      return prev;
+    },[]);
+      
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Asks for array of objects with keys flavor and inStock.
+    // ex. {flavor:'dark chocolate', inStock:15}
+    /*
+    Reach for reduce to loop through objects and return two properties from each object.
+    */
   },
 
   onlyInStock() {
@@ -249,11 +253,15 @@ const cakePrompts = {
     // ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.filter(cake => cake.inStock > 0);
     return result;
 
     // Annotation:
     // Write your annotation here as a comment
+    /*
+      Only in stock: Asks for array of cakes that are in stock.
+      Reach for filter? If cake.inStock > 0
+    */
   },
 
   totalInventory() {
@@ -265,6 +273,9 @@ const cakePrompts = {
 
     // Annotation:
     // Write your annotation here as a comment
+    /*
+      
+    */
   },
 
   allToppings() {

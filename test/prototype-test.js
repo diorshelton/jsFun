@@ -102,7 +102,7 @@ describe('PROTOTYPES', () => {
   });
   
   describe('Mod Prompts', () => {
-    it.only('studentsPerMod', () => {
+    it('studentsPerMod', () => {
       const e = modPrompts.studentsPerMod();
 
       expect(e).to.deep.equal([{
@@ -143,7 +143,7 @@ describe('PROTOTYPES', () => {
       }, {
         flavor: 'honey',
         inStock: 0
-      }])
+      }]);
     });
     
     it('onlyInStock', () => {
@@ -173,19 +173,19 @@ describe('PROTOTYPES', () => {
         frosting: 'whipped cream',
         toppings: ['smoked sea salt', 'crystallized ginger', 'berries'],
         inStock: 21
-      }])
+      }]);
     });
     
-    it('totalInventory', () => {
+    it.only('totalInventory', () => {
       const e = cakePrompts.totalInventory();
 
-      expect(e).to.deep.equal(59)
+      expect(e).to.deep.equal(59);
     });
     
     it('allToppings', () => {
       const e = cakePrompts.allToppings();
 
-      expect(e).to.deep.equal(['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', 'edible flowers', 'mint', 'cranberry', 'crystallized ginger'])
+      expect(e).to.deep.equal(['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', 'edible flowers', 'mint', 'cranberry', 'crystallized ginger']);
     });
     
     it('groceryList', () => {
